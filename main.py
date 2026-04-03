@@ -1,57 +1,40 @@
-# The purpose of this lab is to see the speed of different sorting techniques.
-# Use the same random seed to create the same random list of nubmers for each run.
-# You can change the number of elements in the arrays
-# We will test 3 arrays, one that is already in order, one that is sorted in reverse order, and one that it random.
+# SearchSortLab.py
+# Name:
+# Date:
+# Assignment: Lab 13 – Searching and Sorting
 
-import time
-import random
-import os
-# Your current working directory needs to see the AllSorts.py
-# If you have issues you should comment out this line.
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-import AllSorts
+def linearSearch(data, target):
+    """Return the index of target if found, otherwise return -1."""
+    
+    # TODO: implement linear search
+    
+    return -1
+
+
+def bubbleSort(data):
+    """Sort the list using bubble sort and return the sorted list."""
+    
+    # TODO: implement bubble sort
+    
+    return data
+
 
 def main():
-  random.seed(2020) # This makes sure that the random list will be the same every time.
+    # Test lists
+    sortedList = [1, 2, 3, 4, 5]
+    reversedList = [5, 4, 3, 2, 1]
+    randomList = [3, 1, 4, 2, 5]
+
+    # Test linear search
+    print("Search for 4 in randomList:", linearSearch(randomList, 4))
+    print("Search for 10 in randomList:", linearSearch(randomList, 10))
+
+    # Test sorting
+    print("Sorted list:", bubbleSort(sortedList.copy()))
+    print("Reversed list sorted:", bubbleSort(reversedList.copy()))
+    print("Random list sorted:", bubbleSort(randomList.copy()))
 
 
-  numberTerms = 10000
-
-  orderedList = []
-  reversedList = []
-  randomList = []
-
-  for i in range(numberTerms):
-    orderedList.append(i)
-    reversedList.insert(0, i)
-    randomList.append(random.randint(1, 10000))
-
-  # Run each of the sorts in different python sessions.
-  # The sorts are bubbleSort, bubbleSortEarlyExit, selectionSort, insertionSort, and mergeSort
-
-  print("Begin Sorting %d elements." % numberTerms)
-
-  startTime = time.time()
-  AllSorts.bubbleSort(orderedList)
-  endTime = time.time()
-  elapsedTime = endTime - startTime
-  print("Ordered list time: %.5f seconds" % elapsedTime)
-
-  startTime = time.time()
-  AllSorts.bubbleSort(reversedList)
-  endTime = time.time()
-  elapsedTime = endTime - startTime
-  print("Reversed list time: %.5f seconds" % elapsedTime)
-
-  startTime = time.time()
-  AllSorts.bubbleSort(randomList)
-  endTime = time.time()
-  elapsedTime = endTime - startTime
-  print("Random list time: %.5f seconds" % elapsedTime)
-
-  print("Sorting Complete")
-
-
-if __name__ == '__main__':
-  main()
+if __name__ == "__main__":
+    main()
